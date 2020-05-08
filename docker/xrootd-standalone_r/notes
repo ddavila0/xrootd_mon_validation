@@ -1,4 +1,0 @@
-When running Interactively you will need to:
-- create user ligo
-- cp usercert and hostcert to xrd
-- create /data/data/file
