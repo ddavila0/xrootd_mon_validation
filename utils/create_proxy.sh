@@ -1,2 +1,2 @@
 #!/bin/bash
-voms-proxy-init --cert ~/.globus/usercert.pem --key ~/.globus/userkey.pem 
+voms-proxy-init -voms cms --cert /usercert.pem --key /userkey.pem 
