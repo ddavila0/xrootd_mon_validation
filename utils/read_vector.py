@@ -1,6 +1,5 @@
 from XRootD import client
 import sys
-import pdb
 
 def calculate_len(vector):
     start_n_len = []
