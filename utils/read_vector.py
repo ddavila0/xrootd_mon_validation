@@ -12,21 +12,22 @@ def calculate_len(vector):
 
 def fetch_vector(fd, vector):
     len_vector = calculate_len(vector)
-    #pdb.set_trace()
-    status, vector = fd.vector_read(len_vector)
-    print(status)
+    try:
+        status, vector = fd.vector_read(len_vector)
+    except:
+        return None
+
     vector_list = []
     
     for byte_range in vector:
         byte_array =byte_range.buffer
         int_list = []
         for one_byte in byte_array:
-            int_list.append(ord(one_byte))
+            int_list.append(one_byte)
         vector_list.append(int_list)
 
     return vector_list
 
-print(len(sys.argv))
 
 if len(sys.argv) < 3:
     print("Unexpected number of arguments")
@@ -50,8 +51,10 @@ file_url = server_url +"//"+ filename
 
 print("opening: "+file_url)
 fd.open(file_url)
-#byte_array = fetch_vector(fd, [(0,10),(20,30)])
-#vector_list = fetch_vector(fd, [(0,10),(20,30)])
 vector_list = fetch_vector(fd, vector)
-print(vector_list)
+if vector_list is None:
+    print("Cannot open file: "+file_url)
+else:
+    print(vector_list)
+
 fd.close()

@@ -6,7 +6,11 @@ RUN yum install https://repo.opensciencegrid.org/osg/3.5/osg-3.5-el7-release-lat
 RUN yum install vo-client -y
 RUN yum install voms-clients-cpp -y
 
-RUN yum install xrootd xrootd-server xrootd-client xrootd-client-devel xrootd-python -y
+RUN yum install xrootd xrootd-server xrootd-client xrootd-client-devel xrootd-python python3-xrootd -y
 RUN yum install vim less -y
+
+RUN yum install python3 -y
+
+RUN pip3 install pika python-dotenv
 
 

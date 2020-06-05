@@ -6,5 +6,5 @@ docker run --rm \
     --volume $(pwd)/data/:/data/ \
     --volume /etc/grid-security/hostcert.pem:/etc/grid-security/hostcert.pem \
     --volume /etc/grid-security/hostkey.pem:/etc/grid-security/hostkey.pem \
-    xrd-srv:latest &> /dev/null &
+    xrd-srv:latest &> ./run_log.log &
     #xrd-srv:latest
